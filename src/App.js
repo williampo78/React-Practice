@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles/style.css";
+import Friend from "./Friend";
 
-function App() {
+const App = () => {
+  let friends = [
+    { name: "John", age: 22, desc: "John is handsome." },
+    { name: "Max", age: 23, desc: "Max is nice." },
+    { name: "Bob", age: 20, desc: "Bob is smart." },
+  ];
+
+  // const buttonHandler = (e) => {
+  //   e.preventDefault();
+  //   let date = new Date().toLocaleDateString();
+  //   alert(date);
+  // };
+
+  const buttonHandler = (msg) => {
+    alert(msg);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      {friends.map((friend) => {
+        return <Friend name={friend.name} age={friend.age} />;
+      })}
+
+      <form action="">
+        {/* <input type="text" /> */}
+        {/* <button onClick={buttonHandler}>Submit</button> */}
+        <button
+          onClick={() => {
+            buttonHandler("Hi, how are you?");
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Hello
+        </button>
+      </form>
     </div>
   );
-}
+};
 
 export default App;
